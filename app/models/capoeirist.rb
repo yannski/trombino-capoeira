@@ -18,6 +18,11 @@ class Capoeirist
   field :country, type: String
   field :trainer, type: String
   
-  validates :age, numericality: { even: true }
-  validates :cord, inclusion: { in: CONSTANT_CORDAS }
+  validates :age, numericality: { even: true, allow_blank: true  }
+  validates :cord, inclusion: { in: CONSTANT_CORDAS }, :allow_blank => true
+  validate :firstname_or_apelido
+  
+  def firstname_or_apelido
+    errors.add(:first_name_or_apelido, "Le prénom ou l'apelido doit être renseigné.") if first_name.blank? || apelido.blank?
+  end
 end
