@@ -1,0 +1,28 @@
+!!! 5
+%html
+	%head
+		%title Trombinocapoeira
+		= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+		= javascript_include_tag "application", "data-turbolinks-track" => true
+		= csrf_meta_tags
+
+%body
+	%div{ :class => "navbar navbar-inverse navbar-fixed-top", :role => "navigation" }
+		%div{ :class => "container" }
+			%div{ :class => "navbar-header" }
+				%button{ :type => "button", :class => "navbar-toggle", 'data-toggle' => "collapse", 'data-target' => ".navbar-collapse" }
+					%span{ :class => "sr-only" } Toggle navigation
+					%span{ :class => "icon-bar" }
+					%span{ :class => "icon-bar" }
+					%span{ :class => "icon-bar" }
+				%a{ :class => "navbar-brand", :href => "#" } Trombinocapoeira
+				
+			%div{ :class => "navbar-collapse collapse" }
+				%ul{ :class => "nav navbar-nav"}
+					%li{ :class => "active" }
+						%a{ :href => "#" } Accueil
+					%li
+						%a{ :href => "#about" } À propos
+					%li
+						%a{ :href => "#contact" } Contact
+	= yield
