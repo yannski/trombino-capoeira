@@ -1,7 +1,7 @@
 class Capoeirist
   include Mongoid::Document
   
-  CONSTANT_CORDAS = [ "débutant" => "crua",
+  CONSTANT_CORDAS = [ "debutant" => "crua",
                       "aluno" => ["crua-amarelo", "amarelo", "amarelo-laranja", "laranja", "laranja-azul"],
                       "graduado" => ["azul", "azul-verde", "verde", "verde-roxa"],
                       "instrutor" => ["roxa", "roxa-marron"], 

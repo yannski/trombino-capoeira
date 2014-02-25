@@ -15,14 +15,34 @@
 					%span{ :class => "icon-bar" }
 					%span{ :class => "icon-bar" }
 					%span{ :class => "icon-bar" }
-				%a{ :class => "navbar-brand", :href => "#" } Trombinocapoeira
+				%a{ :class => "navbar-brand", :href => "#" } Trombinoscope Abada Capoeira
 				
 			%div{ :class => "navbar-collapse collapse" }
 				%ul{ :class => "nav navbar-nav"}
 					%li{ :class => "active" }
 						%a{ :href => "#" } Accueil
 					%li
-						%a{ :href => "#about" } � propos
+						%a{ :href => "#about" } A propos
 					%li
 						%a{ :href => "#contact" } Contact
-	= yield
+						
+	%div{ :class => "container theme-showcase", :role => "main" }
+		%div{ :class => "jumbotron" }
+			%h3 Recherche
+			%form{ :class => "form-horizontal", :role => "form" }
+				%div{ :class => "form-group" }
+					= label_tag 'search[first_name]', 'Prénom', class: "col-sm-2 control-label"
+					%div{ :class => "col-xs-3" }= text_field_tag 'search[first_name]', nil, class: "form-control"
+				%div{ :class => "form-group" }
+					= label_tag 'search[apelido]', 'Apelido', class: "col-sm-2 control-label"
+					%div{ :class => "col-xs-3" }= text_field_tag 'search[apelido]', nil, class: "form-control"
+				%div{ :class => "form-group" }
+					= label_tag 'search[trainer]', 'Entraîneur', class: "col-sm-2 control-label"
+					%div{ :class => "col-xs-3" }= text_field_tag 'search[trainer]', nil, class: "form-control"
+				%div{ :class => "form-group" }
+					= label_tag 'search[city]', 'Ville', class: "col-sm-2 control-label"
+					%div{ :class => "col-xs-3" }= text_field_tag 'search[city]', nil, class: "form-control"
+				%div{ :class => "form-group" }
+					= label_tag 'search[cord]', 'Ville', class: "col-sm-2 control-label"
+					= select_tag 'search[cord]', grouped_options_for_select(Capoeirist::CONSTANT_CORDAS), class: "form-control"
+		= yield
