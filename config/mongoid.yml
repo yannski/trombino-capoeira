@@ -52,6 +52,7 @@ development:
 production:
   sessions:
     default:
+      uri: <%= ENV['APPSDECK_MONGO_URL'] %>
       database: trombinocapoeira_production
       hosts:
         - localhost:27017
