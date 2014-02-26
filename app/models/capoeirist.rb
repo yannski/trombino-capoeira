@@ -1,13 +1,15 @@
 class Capoeirist
   include Mongoid::Document
   
-  CONSTANT_CORDAS = [ "debutant" => "crua",
-                      "aluno" => ["crua-amarelo", "amarelo", "amarelo-laranja", "laranja", "laranja-azul"],
-                      "graduado" => ["azul", "azul-verde", "verde", "verde-roxa"],
-                      "instrutor" => ["roxa", "roxa-marron"], 
-                      "professor" => ["marron", "marron-vermelha"],
-                      "mestrando" => "vermelha",
-                      "mestre" => ["vermelha-blanca", "blanca"] ]
+  CONSTANT_CORDAS = [ 
+                      ["debutant", ["crua"]],
+                      ["aluno", ["crua-amarelo", "amarelo", "amarelo-laranja", "laranja", "laranja-azul"]],
+                      ["graduado", ["azul", "azul-verde", "verde", "verde-roxa"]],
+                      ["instrutor", ["roxa", "roxa-marron"]], 
+                      ["professor", ["marron", "marron-vermelha"]],
+                      ["mestrando", ["vermelha"]],
+                      ["mestre", ["vermelha-blanca", "blanca"]]
+                    ]
   
   field :first_name, type: String
   field :last_name, type: String

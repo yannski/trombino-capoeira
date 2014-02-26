@@ -43,6 +43,6 @@
 					= label_tag 'search[city]', 'Ville', class: "col-sm-2 control-label"
 					%div{ :class => "col-xs-3" }= text_field_tag 'search[city]', nil, class: "form-control"
 				%div{ :class => "form-group" }
-					= label_tag 'search[cord]', 'Ville', class: "col-sm-2 control-label"
-					= select_tag 'search[cord]', grouped_options_for_select(Capoeirist::CONSTANT_CORDAS), class: "form-control"
+					= label_tag 'search[cord]', 'Corde', class: "col-sm-2 control-label"
+					%div{ :class => "col-xs-3" }= select_tag 'search[cord]', grouped_options_for_select(Capoeirist::CONSTANT_CORDAS), class: "form-control"
 		= yield
