@@ -5,6 +5,9 @@ gem 'rails', '4.0.3'
 gem 'mongoid', '~> 4.0.0.beta1'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'haml'
+gem 'will_paginate', '~> 3.0.5'
+gem "will_paginate_mongoid", "~> 2.0.1"
+gem "will_paginate-bootstrap", "~> 1.0.0"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

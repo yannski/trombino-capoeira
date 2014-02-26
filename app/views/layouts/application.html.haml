@@ -29,20 +29,28 @@
 	%div{ :class => "container theme-showcase", :role => "main" }
 		%div{ :class => "jumbotron" }
 			%h3 Recherche
-			%form{ :class => "form-horizontal", :role => "form" }
-				%div{ :class => "form-group" }
-					= label_tag 'search[first_name]', 'Prénom', class: "col-sm-2 control-label"
-					%div{ :class => "col-xs-3" }= text_field_tag 'search[first_name]', nil, class: "form-control"
-				%div{ :class => "form-group" }
-					= label_tag 'search[apelido]', 'Apelido', class: "col-sm-2 control-label"
-					%div{ :class => "col-xs-3" }= text_field_tag 'search[apelido]', nil, class: "form-control"
-				%div{ :class => "form-group" }
-					= label_tag 'search[trainer]', 'Entraîneur', class: "col-sm-2 control-label"
-					%div{ :class => "col-xs-3" }= text_field_tag 'search[trainer]', nil, class: "form-control"
-				%div{ :class => "form-group" }
-					= label_tag 'search[city]', 'Ville', class: "col-sm-2 control-label"
-					%div{ :class => "col-xs-3" }= text_field_tag 'search[city]', nil, class: "form-control"
-				%div{ :class => "form-group" }
-					= label_tag 'search[cord]', 'Corde', class: "col-sm-2 control-label"
-					%div{ :class => "col-xs-3" }= select_tag 'search[cord]', grouped_options_for_select(Capoeirist::CONSTANT_CORDAS), class: "form-control"
+			= form_tag(search_capoeirists_path, class: 'form-horizontal', role: 'form') do
+				%div.form-group
+					.col-sm-6
+						= label_tag 'search[apelido]', 'Apelido', class: "col-sm-2 control-label"
+						%div.col-xs-6= text_field_tag 'search[apelido]', (params[:search] ? params[:search][:apelido] : ''), class: "form-control"
+					.col-sm-6
+						= label_tag 'search[trainer]', 'Entraîneur', class: "col-sm-2 control-label"
+						%div.col-xs-6= text_field_tag 'search[trainer]', (params[:search] ? params[:search][:trainer] : ''), class: "form-control"
+				%div.form-group
+					.col-sm-6
+						= label_tag 'search[city]', 'Ville', class: "col-sm-2 control-label"
+						%div.col-xs-6= text_field_tag 'search[city]', (params[:search] ? params[:search][:city] : ''), class: "form-control"
+					.col-sm_6
+						= label_tag 'search[cord]', 'Corde', class: "col-sm-1 control-label"
+						%div.col-xs-3= select_tag 'search[cord]', grouped_options_for_select([["", [""]]] + Capoeirist::CONSTANT_CORDAS, (params[:search] ? params[:search][:cord] : '')), class: "form-control"
+				%div.form-group
+					.col-sm-1
+						%div.col-sm-offset-10.col-sm-10= submit_tag "Go", class: "btn btn-default"
+					.col-sm-1
+						%div.col-sm-offset-10.col-sm-10= button_tag "Effacer", class: "btn btn-default", type: "reset"
+				%div.clearfix
+				
+			%h4= "#{@capoeirists.total_entries} résultat(s)"
+					
 		= yield

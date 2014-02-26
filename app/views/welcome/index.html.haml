@@ -1,0 +1,24 @@
+= will_paginate @capoeirists, renderer: BootstrapPagination::Rails
+
+%table{ :class => "table table-striped table-hover" }
+	%thead
+		%tr 
+			%th Prénom
+			%th Apelido
+			%th Corde
+			%th Professeur
+			%th Ville/Pays
+	%tbody
+		- @capoeirists.each do |capoeirist|
+			%tr
+				%td= capoeirist.first_name
+				%td= capoeirist.apelido
+				%td= capoeirist.cord
+				%td= capoeirist.trainer
+				%td
+					- if capoeirist.city
+						= "#{capoeirist.city}, #{capoeirist.country}"
+					- else
+						= "#{capoeirist.country}"
+						
+= will_paginate @capoeirists, renderer: BootstrapPagination::Rails
